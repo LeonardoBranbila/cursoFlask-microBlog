@@ -6,6 +6,7 @@
     <h2>Olá {{ nome }}!</h2>
 
     <p>
+        <img class="imgquadrada" src="{{ url_for('static', filename='images/indexImg.jpg') }}">
         Empresa: {{ dados.empresa }} <br>
         Profissão: {{ dados.cargo }}
     </p>
