@@ -3,6 +3,19 @@
 
 {% block conteudo %}
 
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+
+        <div>
+            {% for msg in mensagens:  %}
+                {{msg}}
+            {% endfor %}
+            
+        </div>
+
+    {% endif %} 
+    <br>   
     <form action="/autenticar" method="post">
         Usuário: <input type="text" name="usuario"><br>
         Senha: <input type="text" name="senha"><br>

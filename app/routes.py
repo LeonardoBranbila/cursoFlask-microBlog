@@ -1,6 +1,6 @@
 from app import app
-from flask import render_template
-from flask import request
+from flask import render_template, flash, request, redirect
+
 
 @app.route('/')
 @app.route('/index', defaults={"nome":"usuário"}) #Chumba valor default
@@ -21,4 +21,9 @@ def login():
 def autenticar():
     usuario = request.form.get('usuario')
     senha = request.form.get('senha')
-    return "Usuario logado"
+    
+    if usuario == 'admin' and senha == '123':
+        return "Usuario logado"
+    else:
+        flash("Login incorreto")
+        return redirect('/login')
